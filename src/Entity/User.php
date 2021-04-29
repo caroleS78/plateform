@@ -21,6 +21,16 @@ class User implements UserInterface
      */
     private $id;
 
+
+    public function addRoles(string $roles): self
+    {
+        if (!in_array($roles, $this->roles)) {
+            $this->roles[] = $roles;
+        }
+
+        return $this;
+    }
+
     /**
      * @ORM\Column(type="string", length=180, unique=true)
      */
